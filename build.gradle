@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.1.1'
+    // https://mvnrepository.com/artifact/org.testng/testng
+    testImplementation group: 'org.testng', name: 'testng', version: '7.5'
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '4.1.1'
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-firefox-driver
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-firefox-driver', version: '4.1.1'
+    // https://mvnrepository.com/artifact/commons-io/commons-io
+    implementation group: 'commons-io', name: 'commons-io', version: '2.11.0'
+    // https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple
+    implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+}
