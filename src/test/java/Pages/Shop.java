@@ -1,10 +1,7 @@
 package Pages;
 
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.*;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
@@ -24,7 +21,7 @@ public class Shop {
     List<WebElement> btnViewCard;
     @FindBy(xpath = "//a[@class='checkout-button button alt wc-forward']")
     WebElement btnCheckout;
-    @FindBy(name = "orderby")
+    @FindBy(name = "orderBy")
     WebElement dropDown;
     @FindBy(xpath = "//h2[contains(text(),'Black trousers')]")
     WebElement productName;
@@ -54,7 +51,7 @@ public class Shop {
         btnViewCard.get(3).click();
         btnCheckout.click();
     }
-    public void sortByPrice() throws InterruptedException {
+    public void sortByPrice() {
         navLinkShop.click();
         Select select =new Select(dropDown);
         select.selectByIndex(4);
