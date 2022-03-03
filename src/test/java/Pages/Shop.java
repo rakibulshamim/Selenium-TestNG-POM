@@ -10,7 +10,6 @@ import java.util.List;
 
 public class Shop {
     WebDriver driver;
-
     @FindBy(xpath = "//a[contains(text(),'Shop')]")
     WebElement navLinkShop;
     @FindBy(name = "orderby")
@@ -31,8 +30,10 @@ public class Shop {
     WebElement slider;
     @FindBy(xpath = "//button[contains(text(),'Filter')]")
     WebElement btnFilter;
-    @FindBy(className = "select2-selection__rendered")
-    WebElement searchField;
+    @FindBy(className = "select2-selection select2-selection--multiple")
+    WebElement colorField;
+    @FindBy(xpath = "//*[contains(text(), 'Red')]")
+    WebElement fieldColor;
     @FindBy(xpath = "//button[contains(text(),'Apply')]")
     WebElement btnApply;
 
@@ -48,10 +49,13 @@ public class Shop {
         String text = searchResult.getText();
         Assert.assertEquals(text, "Showing all 5 results");
     }
-    public void filterByColor(){
+    public void filterByColor() {
         navLinkShop.click();
-        searchField.sendKeys("Red");
-        //btnApply.click();
+        colorField.click();
+        fieldColor.click();
+        btnApply.click();
+        String text = searchResult.getText();
+        Assert.assertEquals(text, "Showing all 2 results");
     }
     public void sortByPrice(){
         navLinkShop.click();

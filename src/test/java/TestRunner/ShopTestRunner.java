@@ -5,14 +5,14 @@ import Setup.Setup;
 import org.testng.annotations.Test;
 
 public class ShopTestRunner extends Setup {
-    @Test(priority = 0, enabled = false)
+    @Test(priority = 0, enabled = true)
     public void filterByPrice(){
         driver.get("https://envothemes.com/envo-ecommerce");
         Shop shop = new Shop(driver);
         shop.filterByPrice();
     }
     @Test(priority = 1, enabled = true)
-    public void filterByColor(){
+    public void filterByColor() {
         driver.get("https://envothemes.com/envo-ecommerce");
         Shop shop = new Shop(driver);
         shop.filterByColor();

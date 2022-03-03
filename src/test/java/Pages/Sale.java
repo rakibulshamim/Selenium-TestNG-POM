@@ -8,8 +8,7 @@ import java.util.List;
 
 public class Sale {
     WebDriver driver;
-
-    @FindBy(xpath = "//a[contains(text(),'Shop')]")
+    @FindBy(xpath = "//a[contains(text(),'Sale')]")
     WebElement navLinkSale;
     @FindBy(xpath = "//h2[contains(text(),'Polo T-shirt')]")
     WebElement productTitle;
@@ -17,11 +16,11 @@ public class Sale {
     WebElement btnAddToCard;
     @FindBy(xpath = "//div[@class='woocommerce-notices-wrapper']")
     WebElement alertMessage;
-    @FindBy(xpath = "//select[@id='pa_color']")
+    @FindBy(id = "pa_color")
     WebElement btnColor;
     @FindBy(xpath = "//a[contains(text(),'View cart')]")
     List<WebElement> btnViewCard;
-    @FindBy(xpath = "//a[@class='checkout-button button alt wc-forward']")
+    @FindBy(className = "wc-proceed-to-checkout")
     WebElement btnCheckout;
 
     public Sale(WebDriver driver){
@@ -29,10 +28,11 @@ public class Sale {
         PageFactory.initElements(driver, this);
     }
 
-    public void addCardWithoutSelectColor() {
+    public void addCardWithoutSelectColor() throws InterruptedException {
         navLinkSale.click();
         productTitle.click();
         btnAddToCard.click();
+        Thread.sleep(1000);
         String text = alertMessage.getText();
         Assert.assertEquals(text, "Please choose product options by visiting Polo T-shirt.");
     }
