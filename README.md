@@ -1,6 +1,6 @@
 # Selenium-TestNG-POM
 
-This is a test automation project created in TestNG in java. I have tried to automated some part of <a href="https://envothemes.com/envo-ecommerce/">Envo Ecommerce</a> theme.
+A testing repository using Selenium and TestNG to automate an E-commerce website<a href="https://envothemes.com/envo-ecommerce/">Envo Ecommerce</a> and its suite of applications.
 
 ## How to run
 1. First of all you need to have java installed in your pc.
