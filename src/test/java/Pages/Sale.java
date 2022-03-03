@@ -4,6 +4,8 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.*;
 import org.testng.Assert;
 
+import java.util.List;
+
 public class Sale {
     WebDriver driver;
 
@@ -14,7 +16,13 @@ public class Sale {
     @FindBy(xpath = "//button[contains(text(),'Add to cart')]")
     WebElement btnAddToCard;
     @FindBy(xpath = "//div[@class='woocommerce-notices-wrapper']")
-    WebElement errorMessage;
+    WebElement alertMessage;
+    @FindBy(xpath = "//select[@id='pa_color']")
+    WebElement btnColor;
+    @FindBy(xpath = "//a[contains(text(),'View cart')]")
+    List<WebElement> btnViewCard;
+    @FindBy(xpath = "//a[@class='checkout-button button alt wc-forward']")
+    WebElement btnCheckout;
 
     public Sale(WebDriver driver){
         this.driver = driver;
@@ -25,7 +33,16 @@ public class Sale {
         navLinkSale.click();
         productTitle.click();
         btnAddToCard.click();
-        String text = errorMessage.getText();
+        String text = alertMessage.getText();
         Assert.assertEquals(text, "Please choose product options by visiting Polo T-shirt.");
+    }
+    public void checkout() throws InterruptedException {
+        navLinkSale.click();
+        productTitle.click();
+        btnColor.sendKeys(Keys.chord("Red", Keys.ENTER));
+        btnAddToCard.click();
+        Thread.sleep(3000);
+        btnViewCard.get(3).click();
+        btnCheckout.click();
     }
 }
