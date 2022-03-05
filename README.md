@@ -39,7 +39,6 @@ allure serve allure-results
 ```
 
 ### Reports View
-
 These are the screenshots of **Allure** reports:
 
 ![image](https://user-images.githubusercontent.com/36601919/156862330-f6e2516b-6288-4d10-a0eb-600229a9aeb7.png)
