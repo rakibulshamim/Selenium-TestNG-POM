@@ -10,7 +10,7 @@ A testing repository using Selenium and TestNG to automate an e-commerce website
 
 
 ### Technology:
-- Tool: selenium
+- Tool: Selenium
 - IDE: IntelIJ
 - Build tool: Gradle
 - Language: Java
