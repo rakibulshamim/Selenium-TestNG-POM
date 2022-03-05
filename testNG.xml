@@ -1,0 +1,24 @@
+<suite thread-count="1" verbose="1" name="Envo eCommerce automation">
+    <test name="Product Search">
+        <groups>
+            <run>
+                <include name="Search"></include>
+            </run>
+        </groups>
+        <classes>
+            <class name="TestRunner.ShopTestRunner"/>
+        </classes>
+    </test>
+
+    <test name="Purchase Product">
+        <groups>
+            <run>
+                <include name="Purchase"></include>
+            </run>
+        </groups>
+        <classes>
+            <class name="TestRunner.SaleTestRunner"/>
+        </classes>
+    </test>
+
+</suite>

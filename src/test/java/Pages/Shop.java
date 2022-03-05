@@ -10,8 +10,8 @@ import java.util.List;
 
 public class Shop {
     WebDriver driver;
-    @FindBy(xpath = "//a[contains(text(),'Shop')]")
-    WebElement navLinkShop;
+    @FindBy(id = "menu-item-79")
+    WebElement tabShop;
     @FindBy(name = "orderby")
     WebElement dropDown;
     @FindBy(xpath = "//h2[contains(text(),'Black trousers')]")
@@ -24,16 +24,18 @@ public class Shop {
     List<WebElement> iconSearch;
     @FindBy(name = "s")
     WebElement searchBox;
-    @FindBy(className = "woocommerce-result-count")
+    @FindBy(xpath = "//p[@class='woocommerce-result-count']")
     WebElement searchResult;
     @FindBy(xpath = "//div[@class='ui-slider-range ui-corner-all ui-widget-header']")
     WebElement slider;
     @FindBy(xpath = "//button[contains(text(),'Filter')]")
     WebElement btnFilter;
-    @FindBy(className = "select2-selection select2-selection--multiple")
+    @FindBy(xpath = "//div[@class='price_slider_wrapper']")
     WebElement colorField;
     @FindBy(xpath = "//*[contains(text(), 'Red')]")
-    WebElement fieldColor;
+    WebElement color;
+    @FindBy(xpath = "//*[contains(text(), 'White')]")
+    WebElement anotherColor;
     @FindBy(xpath = "//button[contains(text(),'Apply')]")
     WebElement btnApply;
 
@@ -42,23 +44,24 @@ public class Shop {
         PageFactory.initElements(driver, this);
     }
     public void filterByPrice(){
-        navLinkShop.click();
+        tabShop.click();
         Actions action = new Actions(driver);
         action.dragAndDropBy(slider, -100,200).perform();
         btnFilter.click();
         String text = searchResult.getText();
         Assert.assertEquals(text, "Showing all 5 results");
     }
-    public void filterByColor() {
-        navLinkShop.click();
+    public void filterByColor(){
+        tabShop.click();
         colorField.click();
-        fieldColor.click();
+        color.click();
+        anotherColor.click();
         btnApply.click();
         String text = searchResult.getText();
         Assert.assertEquals(text, "Showing all 2 results");
     }
     public void sortByPrice(){
-        navLinkShop.click();
+        tabShop.click();
         Select select =new Select(dropDown);
         select.selectByIndex(4);
         productName.click();
@@ -71,7 +74,7 @@ public class Shop {
         Thread.sleep(2000);
         iconSearch.get(2).click();
     }
-    public void searchByProductName(){
+    public void searchByName(){
         searchBox.sendKeys(Keys.chord("shirt", Keys.ENTER));
         String text = searchResult.getText();
         Assert.assertEquals(text, "Showing all 2 results");
