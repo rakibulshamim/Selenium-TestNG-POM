@@ -6,8 +6,7 @@ A testing repository using Selenium and TestNG to automate an e-commerce website
 1. [Technology](#technology)
 2. [Prerequisites](#prerequisites)
 3. [How to run this project](#How-to-run-this-project)
-4. [Test Plan](#test-plan)
-5. [Reports View](#Reports-View)
+4. [Reports View](#Reports-View)
 
 
 ### Technology:
